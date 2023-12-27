@@ -29,39 +29,23 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ('is_active', 'is_staff', 'is_superuser')
     ordering = ('username',)
     list_display_links = ('username',)
-    def save_model(self, request, obj, form, change):
-        # Kullanıcının kaydedilmeden önce depo ataması yapılmasını sağlayın
-        if not change:  # Yeni kullanıcı eklenirken
-            try:
-                depo = WareHouseUser.objects.get(user=request.user).ware_house
-            except WareHouseUser.DoesNotExist:
-                # Eğer giriş yapan kullanıcının depo bilgisi yoksa, hata gönderin
-                raise ValueError("Giriş yapan kullanıcının bir depo ataması yapılmamış.")
-
-            obj.save()
-            WareHouseUser.objects.create(user=obj, ware_house=depo)
-
-        super().save_model(request, obj, form, change)
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-
-        # Eğer giriş yapan kullanıcı süper kullanıcı ise tüm kullanıcıları göster
+        
         if request.user.is_superuser:
             return qs
-
-        # Giriş yapan kullanıcının depo bilgisini alın
-        try:
-            depo = WareHouseUser.objects.get(user=request.user).ware_house
-        except WareHouseUser.DoesNotExist:
-            # Eğer giriş yapan kullanıcının depo bilgisi yoksa, boş bir QuerySet döndürün
-            return qs.none()
-
-        # Giriş yapan kullanıcının depo ile ilişkili olan kullanıcıları filtreleyin
+        depo = WareHouseUser.objects.get(user=request.user).ware_house
         users = WareHouseUser.objects.filter(ware_house=depo).values_list('user', flat=True)
         qs = qs.filter(pk__in=users)
-
         return qs
-
+    
+    def get_readonly_fields(self, request, obj=None):
+        _fields = ('is_superuser',"user_permissions","groups")
+        readonly_list = []
+        if not request.user.is_superuser :
+            readonly_list.extend([obj._meta.get_field(field_name).name for field_name in _fields if
+                            getattr(obj, field_name) is not None])
+        return readonly_list
 
 # Diğer admin sınıfları...
 

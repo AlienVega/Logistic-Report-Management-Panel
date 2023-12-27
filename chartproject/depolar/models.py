@@ -1,18 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from datetime import date
-
-from django.utils import timezone
-from datetime import timedelta
 from datetime import datetime
 from accounts.models import CustomUser 
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 class WareHouse(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
-
 
 class WareHouseUser(models.Model):
     user=models.OneToOneField(CustomUser,on_delete=models.PROTECT,related_name="user_warehouse")
@@ -70,12 +67,18 @@ class WareHouseInputData(models.Model):
 
     report_year = models.CharField(max_length=4, choices=YEAR_CHOICES, default=datetime.now().year)
     report_month = models.CharField(max_length=2, choices=MONTH_CHOICES, default=datetime.now().month)
+    
 
 class Bildirim(models.Model):
     metin = models.TextField()
     olusturulma_tarihi = models.DateTimeField(auto_now_add=True)
     gorulme_tarihi = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)  # is_active adında yeni bir alan ekledik
+    
+    
+    content_type = models.ForeignKey(ContentType, on_delete=models.PROTECT)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey()
 
     def __str__(self):
         return self.metin

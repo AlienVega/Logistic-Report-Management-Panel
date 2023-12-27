@@ -8,13 +8,13 @@
     
     <link rel="stylesheet" href="{% static '/css/custom.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68warningSIy3Te4Bkz" crossorigin="anonymous"></script>
+    
     <script src="https://kit.fontawesome.com/49b22bb0c4.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
   {% if user.is_authenticated  %}
-    
+
   <img src="{% static '/img/migros_mainpicture.jpg' %}" alt="mainpicture" id="pict1">
   <div class="container-fluid">
     <div class="row">
@@ -32,57 +32,62 @@
 
   <div class="container text-center fw-bold">
       <div class="row mt-5 mb-5">
-        <div class="col-3">
+       <div class="col-3">
           <a href="{% url 'depolar:sevkiyatveri_giris' %}"><button type="button"  class="button-78 btn-lg ">Sevkiyat Analiz</button></a>
        </div>
-        <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Bütçe Hedef Takip</button></a> 
+       <div class="col-3">
+        <a href="{% url 'filotakip:filoveri_giris' %}"><button type="button"  class="button-78 btn-lg ">Filo Takip</button></a>
       </div>
-        <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Mağaza Analiz</button></a>
+        <div class="col-3"><button type="button" class="button-78 btn-lg ">Mağaza Analiz</button></a>
       </div>
-        <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Bütçe/İşletme Gider Analiz</button></a>
+        <div class="col-3"><button type="button" class="button-78 btn-lg ">Bütçe/İşletme Gider Analiz</button></a>
       </div>
       </div>
 
       <div class="row row mt-5 mb-5">
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Giderler</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Giderler</button></a>
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Kadro Takip</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Kadro Takip</button></a>
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Filo Takip</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg  ">Bütçe Hedef Takip</button></a> 
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Servis&Yemek&Elektronik</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Servis&Yemek&Elektronik</button></a>
           </div>
       </div>
       
       <div class="row row mt-5 mb-5">
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Çıkış</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Çıkış</button></a>
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Kadro Kırılım</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Kadro Kırılım</button></a>
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">Nakliye Analiz</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">Nakliye Analiz</button></a>
           </div>
-          <div class="col-3"><button type="button" class="button-78 btn-lg visually-hidden">İdari İşler Fatura</button></a>
+          <div class="col-3"><button type="button" class="button-78 btn-lg ">İdari İşler Fatura</button></a>
           </div>
       </div>
 
       <div class="row row mt-5 mb-5">
-          <div class="col"><button type="button" class="button-78 btn-lg visually-hidden">Bölüm Verimlilik Analiz</button></a>
+          <div class="col"><button type="button" class="button-78 btn-lg ">Bölüm Verimlilik Analiz</button></a>
           </div>
-          <div class="col"><button type="button" class="button-78 btn-lg visually-hidden">Turnover</button></a>
+          <div class="col"><button type="button" class="button-78 btn-lg ">Turnover</button></a>
           </div>
-          <div class="col"><button type="button" class="button-78 btn-lg visually-hidden">Şarj Analiz</button></a>
+          <div class="col"><button type="button" class="button-78 btn-lg ">Şarj Analiz</button></a>
           </div>
-          <div class="col"><button type="button" class="button-78 btn-lg visually-hidden">Atık Takip</button></a>
+          <div class="col"><button type="button" class="button-78 btn-lg ">Atık Takip</button></a>
           </div>
-          <div class="col"><button type="button" class="button-78 btn-lg visually-hidden">Su Takip</button></a>
-          </div>
+          
       </div>
+      <div class="row row mt-5 mb-5">
+        <div class="col"><button type="button" class="button-78 btn-lg ">Su Takip</button></a>
+        </div>    
+      </div>
+      
   </div>
+
   {% else %}
       <p>Lütfen <a href="{% url 'accounts:login' %}">Giriş</a> yapın</p> 
   {% endif %}
 
-   
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

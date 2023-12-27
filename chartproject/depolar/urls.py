@@ -14,6 +14,7 @@ urlpatterns = [
     path("verigiris/",views.WarehouseDataInput.as_view(),name="sevkiyatveri_giris"),
     path("adminpanel/",views.admin_panel,name="adminpanel"),
     path("adminpanel/rapor1/",views.rapor1,name="rapor1"),
+    path("adminpanel/rapor2/",views.rapor2,name="rapor2"),
     path('bla/', views_API.Bla.as_view()),
     path('list/', views_API.WareHouseListAPIView.as_view()),
     path("depolartotal/" , views_API.depolartotal.as_view()),

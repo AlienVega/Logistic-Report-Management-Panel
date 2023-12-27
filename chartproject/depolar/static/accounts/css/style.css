@@ -664,3 +664,9 @@ table th:first-child {
 #chart-container4:fullscreen {
   background-color: #fff; /* Beyaz renk */
 }
+
+.carousel-control-next, .carousel-control-prev {
+  width: 5% !important;
+}
+
+

@@ -1,7 +1,55 @@
 {% extends 'admin/adminpanel.html' %}
+{% load static %}
 
-{% block chart %}
-<h1>RAPOR1</h1>
 
-{% endblock chart %}
+{% block Filotakip %}
+
+<div class="container-fluid">
+  <div class="row table-responsive">
+    <div class="col-12">
+      <table   class="table table-dark table-bordered">
+          <thead>
+            <tr>
+              <th colspan="16" class="fw-bold fs-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="year-select" class="form-label fs-5">YIL</label>
+                    <select id="year-select" class="form-select form-select-sm"></select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="month-select" class="form-label  fs-5">AY</label>
+                    <select id="month-select" class="form-select form-select-sm"></select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="week-select" class="form-label  fs-5">HAFTA</label>
+                    <select id="week-select" class="form-select form-select-sm"></select>
+                  </div>
+                </div>
+              </th>
+            </tr>
+              <tr>
+                <th colspan="16" id="warehouse_id" class="fw-bold fs-4 text-bg-danger"></th>
+              </tr>
+              <tr>
+                <th colspan="5" class="text-center  text-bg-danger">MEVCUT</th>
+                <th class="text-center text-bg-danger">TOTAL</th>
+                <th colspan="4" class="text-center  text-bg-danger">SEZON</th>
+                <th class="text-center text-bg-danger">TOTAL</th>
+                <th colspan="4" class="text-center  text-bg-danger">EKSİK</th>
+                <th class="text-center text-bg-danger">TOTAL</th>
+              </tr>
+          </thead>
+          <tbody id="table-body">
+              <!-- Burası JavaScript ile doldurulacak -->
+          </tbody>
+          <tfoot id="table-footer">
+              <!-- Burası JavaScript ile doldurulacak -->
+          </tfoot>
+      </table>
+    </div> 
+  </div>
+</div>
+
+<script src="{% static 'filotakip/js/table.js' %}"></script>
+{% endblock Filotakip %}
 
