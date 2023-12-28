@@ -11,4 +11,3 @@ Grafik bütün tarayıcılarda çalışır.Grafikler Profesyonel olarak özelle�
 Tablo ve grafikler api sayesinde verileri anlık olarak panelde gösterir.Yıllık Aylık Haftalık filtreleme özelliğine ve rapor başlıklarına göre Yöneticinin istediği formatta
 çapraz ve gelişmiş filtreleme özelliğine sahiptir.
 
-Depo alt kullanıcıları lojistik 
