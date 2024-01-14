@@ -1,0 +1,3 @@
+[build]
+  base = "./chartproject"
+  publish = "./chartproject/public"  # Örneğin, statik dosyalarınız bu dizinde olsun
