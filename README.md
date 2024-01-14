@@ -28,7 +28,7 @@ python manage.py runserver
 sunucu adresinin sonuna /admin yazarak admin paneline gidin ve kullanıcı adı şifrenizi girdikten sonra bir depo tanımlayın ve ilk önce kendinizi depoyla eşleştirin(is warehouse admin)
 
 
-![](/chartproject/static/img/Verigiris.png)
+![](/chartproject/static/img/logisticmain.jpg)
 ![](/chartproject/static/img/sev_verigiris.png)
 ![](/chartproject/static/img/filo_verigiris.png)
 
